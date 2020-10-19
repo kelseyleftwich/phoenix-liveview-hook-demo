@@ -15,6 +15,13 @@ export default {
         group: 'shared',
         draggable: '.draggable',
         ghostClass: 'sortable-ghost',
+        onEnd: function (evt) {
+          hook.pushEventTo(selector, 'dropped', {
+            draggedId: evt.item.id,
+            dropzoneId: evt.to.id,
+            draggableIndex: evt.newDraggableIndex,
+          });
+        },
       });
     });
   },
