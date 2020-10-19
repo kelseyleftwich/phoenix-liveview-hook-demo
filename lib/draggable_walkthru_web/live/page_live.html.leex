@@ -1,0 +1,19 @@
+<div class="dropzone grid gap-3" id="pool">
+    <%= for %{text: text, id: id} <- @pool do %>
+      <div draggable="true" id="<%= id %>" class="draggable p-4 bg-blue-700 text-white"><%= text %></div>
+    <% end %>
+</div>
+
+<%= live_component @socket, DraggableWalkthruWeb.PageLive.DropZoneComponent,
+    draggables: @drop_zone_a,
+    drop_zone_id: "drop_zone_a",
+    title: "Drop Zone A",
+    color: "orange"
+%>
+
+<%= live_component @socket, DraggableWalkthruWeb.PageLive.DropZoneComponent,
+    draggables: @drop_zone_b,
+    drop_zone_id: "drop_zone_b",
+    title: "Drop Zone B",
+    color: "green"
+%>
