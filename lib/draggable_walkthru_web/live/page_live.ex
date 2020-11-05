@@ -21,7 +21,14 @@ defmodule DraggableWalkthruWeb.PageLive do
   end
 
   def handle_event("dropped", %{"draggedId" => dragged_id, "dropzoneId" => drop_zone_id,"draggableIndex" => draggable_index}, %{assigns: assigns} = socket) do
-    drop_zone_atom = drop_zone_id |> get_drop_zone_atom
+    drop_zone_atom =
+      [:pool, :drop_zone_a, :drop_zone_b]
+      |> Enum.find(fn zone_atom -> to_string(zone_atom) == drop_zone_id end)
+
+    if drop_zone_atom === nil do
+     throw "invalid drop_zone_id"
+    end
+
     dragged = find_dragged(assigns, dragged_id)
 
     socket =
@@ -37,15 +44,6 @@ defmodule DraggableWalkthruWeb.PageLive do
 
 
     {:noreply, socket}
-  end
-
-  defp get_drop_zone_atom(drop_zone_id) do
-    case drop_zone_id in ["pool", "drop_zone_a", "drop_zone_b"] do
-      true ->
-        drop_zone_id |> String.to_existing_atom()
-      false ->
-        throw "invalid drop_zone_id"
-    end
   end
 
   defp find_dragged(%{pool: pool, drop_zone_a: drop_zone_a, drop_zone_b: drop_zone_b}, dragged_id) do
