@@ -3,11 +3,6 @@ defmodule DraggableWalkthruWeb.PageLive.DropZoneComponent do
   use Phoenix.LiveComponent
 
   @impl true
-  def mount(socket) do
-    {:ok, socket}
-  end
-
-  @impl true
   def render(assigns) do
     ~L"""
       <div class="dropzone grid gap-3 p-6 border-solid border-2 border-<%= @color %>-300 rounded-md my-6" id="<%= @drop_zone_id %>">
