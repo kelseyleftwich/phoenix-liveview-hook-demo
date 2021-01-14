@@ -1,18 +1,5 @@
-# DraggableWalkthru
+# Client-Side Drag and Drop with Phoenix LiveView
 
-To start your Phoenix server:
+> Make client-side drag and drop event data available to a server-side Phoenix LiveView using hooks
 
-  * Setup the project with `mix setup`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Check out the accompanying [blog post 📝](https://www.headway.io/blog/client-side-drag-and-drop-with-phoenix-liveview) and [video walk through 📺](https://www.youtube.com/watch?v=U1EKT7WT_Ic&feature=emb_title)
